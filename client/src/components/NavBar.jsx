@@ -1,6 +1,8 @@
 import React, {Fragment, useState, useEffect} from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, CalculatorIcon, ChatBubbleLeftEllipsisIcon, HeartIcon, HomeIcon, NewspaperIcon, XMarkIcon, } from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom';
+
 
 const navigation = [
     { name: 'Explore', href: '/Explore', current: true, svg:<HomeIcon/>},
@@ -62,18 +64,23 @@ export default function NavBar() {
                   )}
                 </Disclosure.Button>
               </div>
+              <Link to={'/'} >
               <div className="hidden sm:block sm:items-stretch sm:justify-between">
                 <div className="flex flex-shrink-0 items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-9 h-9">
-                    <path d="M19.006 3.705a.75.75 0 00-.512-1.41L6 6.838V3a.75.75 0 00-.75-.75h-1.5A.75.75 0 003 3v4.93l-1.006.365a.75.75 0 00.512 1.41l16.5-6z" />
-                    <path fillRule="evenodd" d="M3.019 11.115L18 5.667V9.09l4.006 1.456a.75.75 0 11-.512 1.41l-.494-.18v8.475h.75a.75.75 0 010 1.5H2.25a.75.75 0 010-1.5H3v-9.129l.019-.006zM18 20.25v-9.565l1.5.545v9.02H18zm-9-6a.75.75 0 00-.75.75v4.5c0 .414.336.75.75.75h3a.75.75 0 00.75-.75V15a.75.75 0 00-.75-.75H9z" clipRule="evenodd" />
-                </svg>
-
+                  
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-9 h-9">
+                        <path d="M19.006 3.705a.75.75 0 00-.512-1.41L6 6.838V3a.75.75 0 00-.75-.75h-1.5A.75.75 0 003 3v4.93l-1.006.365a.75.75 0 00.512 1.41l16.5-6z" />
+                        <path fillRule="evenodd" d="M3.019 11.115L18 5.667V9.09l4.006 1.456a.75.75 0 11-.512 1.41l-.494-.18v8.475h.75a.75.75 0 010 1.5H2.25a.75.75 0 010-1.5H3v-9.129l.019-.006zM18 20.25v-9.565l1.5.545v9.02H18zm-9-6a.75.75 0 00-.75.75v4.5c0 .414.336.75.75.75h3a.75.75 0 00.75-.75V15a.75.75 0 00-.75-.75H9z" clipRule="evenodd" />
+                    </svg>
                 </div>
               </div>
+              
               <div className='absolute inset-y-5 start-1/2 translate-x-[-50%] sm:hidden'>
-                <p className='font-sans font-bold text-slate-950 '>mapmyhome</p>
+                {/* <p className='font-sans font-bold text-slate-950 '>MapMyHome</p> */}
+                <span className='font-sans font-bold text-slate-500'>Map</span>
+                <span className='font-sans font-bold text-slate-700'>MyHome</span>
               </div>
+              </Link>
               <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                   {navigation.map((item) => (
@@ -81,7 +88,7 @@ export default function NavBar() {
                       key={item.name}
                       href={item.href}
                       className={classNames(
-                        item.name === activeItem ? 'text-slate-950 border-b-2 border-slate-950' : 'text-slate-950 hover:bg-gray-700 hover:text-white',
+                        item.name === activeItem ? 'text-slate-950 border-b-2 border-slate-950' : 'text-slate-950 hover:bg-gray-700 hover:text-white hover:rounded-lg',
                         'flex items-center px-2 py-1 text-sm font-medium'
                       )}
                       aria-current={item.name === activeItem ? 'page' : undefined}
