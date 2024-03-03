@@ -11,6 +11,7 @@ import Chatbot from './pages/Chatbot';
 import Explore from './components/Explore';
 import Favourites from './pages/Favourites';
 import Tools from './pages/Tools';
+import Settings from './pages/Settings';
 
 
 function App() {
@@ -23,7 +24,9 @@ function App() {
     <Route path='/sign-in' element={<SignIn />} /> 
     <Route path='/sign-up' element={<SignUp />} /> 
     <Route path='/about' element={<About />} /> 
-    <Route path='/profile' element={<Profile />} /> 
+    <Route path='/Profile' element={<Profile />} />
+    <Route path='/Settings' element={<Settings/>} /> 
+
 
     <Route path="/Explore" element={<Explore />} />
     <Route path="/Favourites" element={<Favourites/>} />
