@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
+// require('dotenv').config();
+// const apiKey = process.env.API_KEY;
 export default function Blog() {
   const [blogs, setBlogs] = useState([]);
-
   // fetching data from api
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://newsapi.org/v2/everything?q=real estate&apiKey=1bc90e10e0a44957ad863e78237e968e&searchIn=title');
+        const response = await fetch(`https://newsapi.org/v2/everything?q=real%20estate&apiKey=${apiKey}&searchIn=title`);
         const data = await response.json();
         setBlogs(data.articles);
       } catch (error) {
