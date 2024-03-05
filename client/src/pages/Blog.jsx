@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-<<<<<<< HEAD
+
 const apiKey = import.meta.env.VITE_BLOG_API_KEY;
 
-=======
-// require('dotenv').config();
-// const apiKey = process.env.API_KEY;
->>>>>>> d123a41f96a4d9066b7bb8e76626789a566fc324
 export default function Blog() {
   const [blogs, setBlogs] = useState([]);
   // fetching data from api
