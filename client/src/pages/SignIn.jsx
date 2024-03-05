@@ -2,7 +2,10 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { signInStart, signInSuccess, signInFailure } from '../redux/user/userSlice';
+<<<<<<< HEAD
 import OAuth from '../components/OAuth';
+=======
+>>>>>>> d123a41f96a4d9066b7bb8e76626789a566fc324
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
@@ -68,9 +71,12 @@ export default function SignIn() {
         hover:opacity-95 disabled:opacity-80'>
           {loading ? 'Loading...' : 'Sign In'}
         </button>
+<<<<<<< HEAD
 
         <OAuth />
 
+=======
+>>>>>>> d123a41f96a4d9066b7bb8e76626789a566fc324
       </form>
       <div className='flex gap-2 mt-5'>
         <p>Create new account?</p>

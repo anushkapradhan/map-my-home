@@ -13,7 +13,10 @@
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
     "@reduxjs/toolkit": "^2.1.0",
+<<<<<<< HEAD
     "firebase": "^10.8.1",
+=======
+>>>>>>> d123a41f96a4d9066b7bb8e76626789a566fc324
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
