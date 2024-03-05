@@ -12,6 +12,7 @@ import Explore from './components/Explore';
 import Favourites from './pages/Favourites';
 import Tools from './pages/Tools';
 import Settings from './pages/Settings';
+import PrivateRoute from './components/PrivateRoute';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
     <Route path='/sign-in' element={<SignIn />} /> 
     <Route path='/sign-up' element={<SignUp />} /> 
     <Route path='/about' element={<About />} /> 
-    <Route path='/Profile' element={<Profile />} />
+    
     <Route path='/Settings' element={<Settings/>} /> 
 
 
@@ -33,6 +34,10 @@ function App() {
     <Route path="/Tools" element={<Tools/>} />
     <Route path="/Blog" element={<Blog/>} />
     <Route path="/Chatbot" element={<Chatbot/>} />
+
+    <Route element={<PrivateRoute />} >
+    <Route path='/Profile' element={<Profile />} />
+    </Route>
   </Routes>
   </BrowserRouter>
   )
