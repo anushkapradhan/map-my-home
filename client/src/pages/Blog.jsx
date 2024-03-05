@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-// require('dotenv').config();
-// const apiKey = process.env.API_KEY;
+const apiKey = import.meta.env.VITE_BLOG_API_KEY;
+
 export default function Blog() {
   const [blogs, setBlogs] = useState([]);
   // fetching data from api

@@ -5,7 +5,6 @@ import userRouter from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
 
 dotenv.config();
-const apiKey = process.env.API_KEY;
 mongoose.connect(process.env.MONGO).then(() => {
     console.log('MongoDB Connected');
 }).catch((err) => {
