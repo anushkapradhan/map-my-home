@@ -3,7 +3,7 @@ import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import About from './pages/About';
-import Profile from './pages/Profile2';
+import Profile from './pages/Profile';
 import NavBar from './components/NavBar';
 import Blog from './pages/Blog';
 import Chatbot from './pages/Chatbot';

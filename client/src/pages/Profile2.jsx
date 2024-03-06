@@ -3,7 +3,7 @@ import { EyeIcon, PhoneIcon, PencilSquareIcon, BuildingOffice2Icon, UserIcon,} f
 import { Card, Avatar, List, ListItem, ListItemPrefix, } from "@material-tailwind/react";
 
 
-export default function Profile() {
+export default function Profile2() {
   return(
     <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
       <div className="text-center mb-5 mt-7">
