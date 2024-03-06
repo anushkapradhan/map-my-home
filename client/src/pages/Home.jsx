@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Home() {
   return (
-    <div>Home</div>
+    <div><a href='/Profile2' >Profile 2</a></div>
   )
 }

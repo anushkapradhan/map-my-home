@@ -14,6 +14,8 @@ import Tools from './pages/Tools';
 import Settings from './pages/Settings';
 import PrivateRoute from './components/PrivateRoute';
 
+import Profile2 from './pages/Profile2';
+
 
 function App() {
   return (
@@ -35,8 +37,11 @@ function App() {
     <Route path="/Blog" element={<Blog/>} />
     <Route path="/Chatbot" element={<Chatbot/>} />
 
+    
+
     <Route element={<PrivateRoute />} >
     <Route path='/Profile' element={<Profile />} />
+    <Route path='/Profile2' element={<Profile2 />} />
     </Route>
   </Routes>
   </BrowserRouter>
