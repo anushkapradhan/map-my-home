@@ -4,7 +4,6 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import About from './pages/About';
 import Profile from './pages/Profile';
-// import Header from './components/Header';
 import NavBar from './components/NavBar';
 import Blog from './pages/Blog';
 import Chatbot from './pages/Chatbot';
