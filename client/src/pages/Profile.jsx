@@ -1,32 +1,9 @@
 import React, { useState } from 'react';
 import { EyeIcon, PhoneIcon, PencilSquareIcon, BuildingOffice2Icon, UserIcon,} from '@heroicons/react/24/solid';
 import { Card, Avatar, List, ListItem, ListItemPrefix, } from "@material-tailwind/react";
-// import EditProfile from '../components/ProfileComponents/EditProfile';
+
 
 export default function Profile() {
-  // const [selectedPage, setSelectedPage] = useState('editProfile');
-
-  // const handlePageChange = (page) => {
-  //   setSelectedPage(page);
-  // };
-
-  // const renderPageContent = () => {
-  //   switch (selectedPage) {
-  //     case 'editProfile':
-  //       return <EditProfile />;
-  //     case 'viewedProperties':
-  //       return <ViewedPropertiesPage />;
-  //     case 'contactedProperties':
-  //       return <ContactedPropertiesPage />;
-  //     case 'yourListings':
-  //       return <YourListingsPage />;
-  //     case 'createListings':
-  //       return <CreateListingsPage />;
-  //     default:
-  //       return null;
-  //   }
-  // };
-
   return(
     <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
       <div className="text-center mb-5 mt-7">
