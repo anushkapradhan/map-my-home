@@ -2,7 +2,7 @@ import React, {Fragment, useState, useEffect} from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, CalculatorIcon, ChatBubbleLeftEllipsisIcon, HeartIcon, HomeIcon, NewspaperIcon, XMarkIcon, } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom';
-
+import SignOutDialog from './ProfileComponents/SignOutDialog';
 import { useSelector } from 'react-redux'; // new
 
 const navigation = [
@@ -22,13 +22,12 @@ function classNames(...classes) {
 export default function NavBar() {
   const { currentUser } = useSelector(state => state.user); // new
 
+  // for navbar navigation
   const [activeItem, setActiveItem] = useState(navigation.find((item) => item.current)?.name);
-
   const handleItemClick = (item) => {
     // Update the active item when a navigation item is clicked.
     setActiveItem(item.name);
   };
-
   useEffect(() => {
     const updateActiveItem = () => {
       const currentPath = window.location.pathname;
@@ -37,19 +36,28 @@ export default function NavBar() {
         setActiveItem(currentNavItem.name);
       }
     };
-
     // Update activeItem on initial load
     updateActiveItem();
-
     // Add a listener to update activeItem on route changes
     window.addEventListener('popstate', updateActiveItem);
-
     // Remove the event listener when the component is unmounted
     return () => {
       window.removeEventListener('popstate', updateActiveItem);
     };
   }, []);
+
+  //handle signout with dialog
+  const [isOpen, setIsOpen] = useState(false); // State to control dialog visibility
+  const handleSignOut = (event) => {
+    event.preventDefault(); // Prevent the default behavior of anchor tag
+    setIsOpen(true); // Open the dialog when sign-out button is clicked
+  };
+  const handleDialogClose = () => {
+    setIsOpen(false); // Close the dialog
+  };
+
   return (
+    <>
     <Disclosure as="nav" className="bg-white">
       {({ open }) => (
         <>
@@ -57,7 +65,7 @@ export default function NavBar() {
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-slate-950 hover:bg-white hover:text-slate-950 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-slate-950">
+                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-blue-gray-900 hover:bg-white hover:text-blue-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-gray-900">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -79,9 +87,9 @@ export default function NavBar() {
               </div>
               
               <div className='absolute inset-y-5 start-1/2 translate-x-[-50%] sm:hidden'>
-                {/* <p className='font-sans font-bold text-slate-950 '>MapMyHome</p> */}
-                <span className='font-sans font-bold text-slate-500'>Map</span>
-                <span className='font-sans font-bold text-slate-700'>MyHome</span>
+                {/* <p className='font-sans font-bold text-blue-gray-900 '>MapMyHome</p> */}
+                <span className='font-sans font-bold text-blue-gray-500'>Map</span>
+                <span className='font-sans font-bold text-blue-gray-700'>MyHome</span>
               </div>
               </Link>
               <div className="hidden sm:ml-6 sm:block">
@@ -91,7 +99,7 @@ export default function NavBar() {
                       key={item.name}
                       href={item.href}
                       className={classNames(
-                        item.name === activeItem ? 'text-slate-950 border-b-2 border-slate-950' : 'text-slate-950 hover:bg-gray-700 hover:text-white hover:rounded-lg',
+                        item.name === activeItem ? 'text-blue-gray-900 border-b-2 border-blue-gray-900' : 'text-blue-gray-900 hover:bg-gray-700 hover:text-white hover:rounded-lg',
                         'flex items-center px-2 py-1 text-sm font-medium'
                       )}
                       aria-current={item.name === activeItem ? 'page' : undefined}
@@ -107,7 +115,7 @@ export default function NavBar() {
                   { currentUser ? (
                     <img className='rounded-full h-7 w-7 object-cover' src = {currentUser.avatar} alt='profile' />
                   ) : (
-                    <li className='text-slate-700 hover:underline'>
+                    <li className='text-blue-gray-700 hover:underline'>
                       Sign In
                     </li>
                   )}
@@ -167,6 +175,7 @@ export default function NavBar() {
                           <a
                             href="/"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            onClick={(e) => handleSignOut(e)} // Open the sign-out dialog on click
                           >
                             Sign out
                           </a>
@@ -176,7 +185,7 @@ export default function NavBar() {
                   </Transition>
                 </Menu>
                 ) : (
-                  <a href='/sign-in' className='text-slate-700 hover:underline'>
+                  <a href='/sign-in' className='text-blue-gray-700 hover:underline'>
                       Sign In
                     </a>
                 )}
@@ -249,7 +258,7 @@ export default function NavBar() {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-slate-950 hover:bg-gray-700 hover:text-white',
+                    item.current ? 'bg-gray-900 text-white' : 'text-blue-gray-900 hover:bg-gray-700 hover:text-white',
                     'block rounded-md px-3 py-2 text-base font-medium'
                   )}
                   aria-current={item.current ? 'page' : undefined}
@@ -266,7 +275,7 @@ export default function NavBar() {
                   key={item.name}
                   href={item.href}
                   className={classNames(
-                    item.name === activeItem ? 'bg-gray-900 text-white' : 'text-slate-950 hover:bg-gray-700 hover:text-white',
+                    item.name === activeItem ? 'bg-gray-900 text-white' : 'text-blue-gray-900 hover:bg-gray-700 hover:text-white',
                     'block rounded-md px-3 py-2 text-base font-medium'
                   )}
                   aria-current={item.name === activeItem ? 'page' : undefined}
@@ -278,8 +287,11 @@ export default function NavBar() {
               ))}
             </div>
           </Disclosure.Panel>
+          {/* Render the sign-out dialog */}
         </>
       )}
     </Disclosure>
+    <SignOutDialog open={isOpen} handleClose={handleDialogClose} />  
+    </>
   )
 }
