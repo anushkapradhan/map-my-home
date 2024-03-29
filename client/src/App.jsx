@@ -15,7 +15,7 @@ import PrivateRoute from './components/PrivateRoute';
 
 import Profile2 from './pages/Profile2';
 import CreateListing from './pages/CreateListing';
-
+import UpdateListing from './pages/UpdateListing';
 
 function App() {
   return (
@@ -43,6 +43,7 @@ function App() {
     <Route path='/Profile' element={<Profile />} />
     <Route path='/Profile2' element={<Profile2 />} />
     <Route path='/create-listing' element={<CreateListing/>} />
+    <Route path='/update-listing' element={<UpdateListing/>} />
     </Route>
   </Routes>
   </BrowserRouter>

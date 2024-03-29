@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@alan-ai/alan-sdk-web": "^1.8.54",
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
     "@material-tailwind/react": "^2.1.9",
