@@ -51,6 +51,7 @@ export const createListing = async (req, res, next) => {
       next(error);
     }
   };
+
   
 // export const updateListing = async (req, res, next) => {
   //   const listing = await Listing.findById(req.params.id);
@@ -134,4 +135,5 @@ export const createListing = async (req, res, next) => {
   //     next(error);
   //   }
   // };
+
 
