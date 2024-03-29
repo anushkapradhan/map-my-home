@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Spinner } from "@material-tailwind/react";
 
 
 const apiKey = import.meta.env.VITE_BLOG_API_KEY;
 
 export default function Blog() {
   const [blogs, setBlogs] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   // fetching data from api
   useEffect(() => {
     const fetchData = async () => {
@@ -12,6 +15,7 @@ export default function Blog() {
         const response = await fetch(`https://newsapi.org/v2/everything?q=real%20estate&apiKey=${apiKey}&searchIn=title`);
         const data = await response.json();
         setBlogs(data.articles);
+        setIsLoading(false); // Set isLoading to false after fetching data
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -21,7 +25,8 @@ export default function Blog() {
   }, []);
 
   return (
-    <div className="bg-white py-24 sm:py-16">
+    <div className="bg-white py-24 sm:py-16 flex flex-col items-center justify-center">
+    {isLoading ? <Spinner className='h-32 w-32'/> : null}
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Top articles on real-estate</h2>
